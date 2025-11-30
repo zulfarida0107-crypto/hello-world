@@ -6,16 +6,17 @@ on:
 
 jobs:
   greeting:
-    runs-on: my-laptop # Ganti dengan label yang dibuat
+    runs-on: my-laptop # Ganti dengan label runner yang sudah kamu buat
 
     steps:
-    -	name: Say Hello
-    run: echo "Hello, World! 👋"
-    
-    -	name: Show Date and Time
-    run: echo "Current time is $(date) ⏱"
-    
-    - name: Show GitHub Info run: |
-    echo "Repository: ${{ github.repository }}" 
-    echo "Branch: ${{ github.ref }}"
-    echo "Commit: ${{ github.sha }}"
+      - name: Say Hello
+        run: echo "Hello, World! 👋"
+
+      - name: Show Date and Time
+        run: echo "Current time is $(date) ⏱"
+
+      - name: Show GitHub Info
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "Commit: ${{ github.sha }}"
