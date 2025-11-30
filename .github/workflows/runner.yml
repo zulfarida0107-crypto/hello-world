@@ -1,18 +1,21 @@
+name: Hello World Workflow
+
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
-permissions:
-  contents: read
+    branches: [ main ] # Pastikan nama branch sesuai!
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  greeting:
+    runs-on: my-laptop # Ganti dengan label yang dibuat
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Validate composer.json and composer.lock
-        run: composer validate --strict
+    -	name: Say Hello
+    run: echo "Hello, World! 👋"
+    
+    -	name: Show Date and Time
+    run: echo "Current time is $(date) ⏱"
+    
+    - name: Show GitHub Info run: |
+    echo "Repository: ${{ github.repository }}" 
+    echo "Branch: ${{ github.ref }}"
+    echo "Commit: ${{ github.sha }}"
